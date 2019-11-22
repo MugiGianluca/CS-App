@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color ="skyblue">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Abogados
+    </ion-title>
+    <ion-buttons slot="end" (click)="handleCreateUser()" *ngIf="listUser">
+      <ion-icon name="person-add"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="handleListUser()" *ngIf="createUser">
+        <ion-icon name="close-circle"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content *ngIf="listUser">
+
+  <ion-list reorder="true">
+
+
+    <ion-item *ngFor="let player of players">
+      {{player.nombre}}
+      <div class="item-note" slot="end">
+        No. {{player.numero}}
+      </div>
+
+
+      <ion-button color="danger" expand="full" (click)="handleDeleteUser()">Borrar<ion-icon name ="trash"></ion-icon></ion-button>
+
+      <ion-button color="primary" expand="full" (click)="handleUpdateUser()">Modificar<ion-icon name ="refresh"></ion-icon></ion-button>
+
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-content *ngIf="createUser">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6">
+                <ion-input color="medium" placeholder="Nombre" [(ngModel)]="name"></ion-input>
+            </ion-col>
+            <ion-col size="6">
+                <ion-input color="medium" placeholder="Numero de Jugador" [(ngModel)]="numberPlayer"></ion-input>
+            </ion-col>
+
+            <ion-col size="6">
+                <ion-button expand="block" color="primary"  (click)="GetTeams()">Equipo</ion-button>
+                </ion-col>
+
+                <ion-col size="6">
+                <ion-button expand="block" color="primary"  (click)="handleGetPositions()">Posicion</ion-button>
+            </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+      <div style="width: 100%; text-align: center;">
+      <ion-button expand="block" color="primary"(click)="Ready()">Listo
+      </ion-button></div>
+</ion-content>

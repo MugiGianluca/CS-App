@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="skyblue">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Fases
+    </ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+
+
+
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let equipo of equipos">
+          {{equipo.nombre}}
+      <div class="item-note" slot="end">
+        Cod. {{equipo.codigo}}
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
